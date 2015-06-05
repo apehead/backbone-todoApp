@@ -1,0 +1,96 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Backbone.js • TodoMVC</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- build:css(.tmp) styles/main.css -->
+        <!-- <link rel="stylesheet" href="styles/main.css"> -->
+        <link rel="stylesheet" href="styles/base.css">
+        <!-- endbuild -->
+        <!-- build:js scripts/vendor/modernizr.js -->
+        <!-- <script src="bower_components/modernizr/modernizr.js"></script> -->
+        <!-- endbuild -->
+    </head>
+    <body>
+        <section id="todoapp">
+            <header id="header">
+                <h1>todos</h1>
+                <input id="new-todo" placeholder="What needs to be done?" autofocus>
+            </header>
+            <section id="main">
+                <input id="toggle-all" type="checkbox">
+                <label for="toggle-all">Mark all as complete</label>
+                <ul id="todo-list"></ul>
+            </section>
+            <footer id="footer"></footer>
+        </section>
+        <div id="info">
+            <p>Double-click to edit a todo</p>
+            <p>Written by <a href="https://github.com/addyosmani">Addy Osmani</a></p>
+            <p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
+        </div>
+
+        <!-- build:js scripts/vendor.js -->
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/lodash/dist/lodash.compat.js"></script>
+        <script src="bower_components/backbone/backbone.js"></script>
+        <script src="bower_components/backbone.localStorage/backbone.localStorage.js"></script>
+        <!-- endbuild -->
+
+        <!-- build:js scripts/plugins.js -->
+        <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js"></script>
+        <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/alert.js"></script>
+        <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/button.js"></script>
+        <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/carousel.js"></script>
+        <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/collapse.js"></script>
+        <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/dropdown.js"></script>
+        <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js"></script>
+        <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js"></script>
+        <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js"></script>
+        <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/scrollspy.js"></script>
+        <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tab.js"></script>
+        <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/transition.js"></script>
+        <!-- endbuild -->
+
+        <!-- templates -->
+        <script type="text/template" id="item-template">
+            <div class="view">
+                <input class="toggle" type="checkbox" <%= completed ? 'checked' : '' %>>
+                <label><%= title %></label>
+                <button class="destroy"></button>
+            </div>
+            <input class="edit" value="<%= title %>">
+        </script>
+        <script type="text/template" id="stats-template">
+            <span id="todo-count"><strong><%= remaining %></strong> <%= remaining === 1 ? 'item' : 'items' %> left</span>
+            <ul id="filters">
+                <li>
+                        <a class="selected" href="#/">All</a>
+                </li>
+                <li>
+                    <a href="#/active">Active</a>
+                </li>
+                <li>
+                    <a href="#/completed">Completed</a>
+                </li>
+            </ul>
+            <% if (completed) { %>
+            <button id="clear-completed">Clear completed (<%= completed %>)</button>
+            <% } %>
+        </script>
+        <!-- endtemplates -->
+
+        <!-- build:js({.tmp,app}) scripts/app.js -->
+        <script src="scripts/models/todo.js"></script>
+        <script src="scripts/collections/todos.js"></script>
+        <script src="scripts/views/todos.js"></script>
+        <script src="scripts/views/app.js"></script>
+        <script src="scripts/routers/router.js"></script>
+        <script src="scripts/app.js"></script>
+        <!-- <script src="scripts/templates.js"></script> -->
+        <!-- endbuild -->
+</body>
+</html>
