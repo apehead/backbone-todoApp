@@ -1,2 +1,2 @@
 # backbone-todoApp
-Backbone Todo Sample App with Backbone.localStorage :)
+Backbone Todo Sample App with Backbone.localStorage
